@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/style/grid.css' %}">
+    <title>OCR-SERVER</title>
+</head>
+<body>
+    <h1>Hello world! {{ data.count }}</h1>
+    {% for board in data %}
+        <div>
+            <h4>{{ board.title }}</h4>
+            <p>{{ board.contents }}</p>
+            <span>{{ board.author }}</span>
+            <p>{{board.loaded_file }}</p>
+            <input type="datetime" value="{{ board.created_at }}">
+            <input type="datetime" value="{{ board.modified_at }}">
+        </div>
+    {% endfor %}
+</body>
+</html>
